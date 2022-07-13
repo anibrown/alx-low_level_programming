@@ -1,17 +1,20 @@
 #include "main.h"
+
 /**
- * _strcpy - copies the string pointed to by src,
- * @dest: destination pointer to take value
- * @src: array pointer that gets copied
- * Description: copies the string pointed to by src to the buffer pointed to by dest
- * Return: dest
+ * _strcpy - print reverse characters.
+ * @dest: Array
+ * @src: - Number of array
+ * Return: Always 0.
  */
 char *_strcpy(char *dest, char *src)
 {
-	int k;
+	int i;
 
-	for (k = 0; src[k] != '\0'; k++)
-		dest[k] = src[k];
-	dest[k] = '\0';
+	for (i = 0; src[i]; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = src[i];
 	return (dest);
+
 }
