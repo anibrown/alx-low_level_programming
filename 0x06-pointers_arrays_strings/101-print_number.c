@@ -1,25 +1,33 @@
 #include "main.h"
-
 /**
-  * print_number - Prints any integer with putchar
-  * @n: Number to prints
-  *
-  * Return: Nothing
-  */
+ * print_number - prints an integer.
+ * @n: input integer.
+ * Return: void.
+ */
 void print_number(int n)
 {
-	unsigned int x;
+	unsigned int l, m, o;
 
 	if (n < 0)
 	{
-		_putchar('-');
-		n *= -1;
+		_putchar(45);
+		l = n * -1;
+	}
+	else
+	{
+		l = n;
+	}
+	m = l;
+	o = 1;
+
+	while (m > 9)
+	{
+		m /= 10;
+		o *= 10;
 	}
 
-	x = n;
-
-	if (x / 10)
-		print_number(x / 10);
-
-	_putchar(x % 10 + '0');
+	for (; o >= 1; o /= 10)
+	{
+		_putchar(((l / o) % 10) + 48);
+	}
 }
