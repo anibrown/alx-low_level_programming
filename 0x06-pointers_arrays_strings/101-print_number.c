@@ -1,49 +1,46 @@
 #include "main.h"
-#include <stdio.h>
-/**
- * print_number - Print an integer using only _putchar
- * @n: integer to print
- */
 
+/**
+ * print_number -  checks for checks for a digit (0 through 9).
+ * @n: n -  Variable
+ * Return: Always 0.
+ */
 void print_number(int n)
 {
-	int power;
-	int neg;
-	int hold;
+	unsigned int z;
+	int m, b;
 
-	neg = 0;
-	power = 1;
-	hold = n;
-	if (n < 0)
+	b = 10;
+
+	if (n < 10 && n >= 0)
 	{
+		_putchar (n + '0');
+	}
+	else if (n > -10 && n < 0)
+	{
+		n = n - 2 * n;
 		_putchar('-');
-		neg = 1;
+		_putchar (n + '0');
 	}
 
-	while (hold > 9 || hold < -9)
+	else
 	{
-		power *= 10;
-		hold /= 10;
+		if (n < 0)
+		{
+			n = n * -1;
+			_putchar ('-');
+		}
+		z = n;
+	while (z / b > 9)
+	{
+		b = b * 10;
 	}
-
-	while (power > 0)
+	while (b > 0)
 	{
-		if (power > 9)
-		{
-			if (!neg)
-				_putchar((n / power % 10) + '0');
-			else
-				_putchar((n / power % 10) * -1 + '0');
-
-			power /= 10;
-		}
-		if (power == 1)
-		{
-			if (neg)
-				_putchar((n % 10) * -1 + '0');
-			else
-				_putchar(n % 10 + '0');
-			power = 0;
-		}
+		m = z / b;
+		z = z % b;
+		_putchar (m + '0');
+		b = b / 10;
+	}
 	}
 }
