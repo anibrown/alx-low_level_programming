@@ -1,19 +1,23 @@
-able File  17 lines (16 sloc)  257 Bytes
-
 #include "main.h"
+
 /**
- * string_toupper - changes all lowercase by uppercase
- * @s: string
- * Return: s
+ * string_toupper - Function that reverses the content of an array of integers.
+ *
+ * @s: s is the array
+ *
+ * Return: Always 0.
  */
 char *string_toupper(char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i] != '\0')
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
+		if ((s[i] >= 97) && (s[i] <= 122))
+		{
 			s[i] = s[i] - 32;
+		}
+	i++;
 	}
 	return (s);
 }

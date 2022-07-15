@@ -1,18 +1,33 @@
 #include "main.h"
-/**
- * _strcmp - compares two strings
- * @s1: string 1 to be compared
- * @s2: string 2 to be compared
- * Return: negativve if s1<s2, 0 if matching and positive int if s1 > s2
- */
-int _strcmp(char *s1, char *s2)
-{
-	int i;
 
-	for (i = 0; s1[i] != '\0' || s2[i] != '\0'; i++)
+/**
+ * cap_string - Function that reverses the content of an array of integers.
+ *
+ * @s: s is the array
+ *
+ * Return: Always 0.
+ */
+char *cap_string(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if (s[0] <= 122 && s[0] >= 97)
+		{
+			s[0] = s[0] - 32;
+		}
+		if (s[i] == 32 || s[i] == 46 || s[i] == '\t' ||
+			s[i] == '\n' || s[i] == 44 || s[i] == 59 ||
+				s[i] == '!' || s[i] == '?' || s[i] == '(' ||
+				s[i] == ')' || s[i] == '{' || s[i] == '}')
+		{
+			if (s[i + 1] <= 122 && s[i + 1] >= 97)
+			{
+				s[i + 1] = s[i + 1] - 32;
+			}
+		}
+	i++;
 	}
-return (0);
+	return (s);
 }
